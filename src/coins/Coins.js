@@ -23,9 +23,11 @@ class Coins extends Component {
   }
 
   render () {
-    // if (this.state.coins.length === 0) {
-    //   return <Spinner animation="border" />
-    // }
+    if (this.state.coins.length === 0) {
+      return (
+        <p>...</p>
+      )
+    }
     console.log('coins component render')
     return (
       <Fragment>
@@ -34,7 +36,7 @@ class Coins extends Component {
         <ul>
           {this.state.coins.map(coin => (
             <li key={coin.id}>
-              <Link to={'/movies/' + coin.id}>{coin.name}
+              <Link to={'/coins/' + coin.id}>{coin.name}
               </Link></li>
           ))}
         </ul>
