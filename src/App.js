@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 
 // import Layout from './layout/Layout'
 import Coins from './coins/Coins'
+import Coin from './coins/Coin'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -60,6 +61,7 @@ class App extends Component {
           )} />
         </main>
         <AuthenticatedRoute user={user} exact path='/coins' component={Coins} />
+        <AuthenticatedRoute user={user} exact path='/coins/:id' component={Coin} />
       </React.Fragment>
     )
   }

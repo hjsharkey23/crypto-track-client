@@ -22,7 +22,7 @@ class CoinCreate extends Component {
     const { coin } = this.state
 
     axios({
-      url: `${apiUrl}/movies`,
+      url: `${apiUrl}/coins`,
       method: 'post',
       data: { coin }
     })
