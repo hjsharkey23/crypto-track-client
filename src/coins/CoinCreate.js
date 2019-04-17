@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import apiUrl from '../apiConfig'
+// import axios from 'axios'
+// import apiUrl from '../apiConfig'
 import { Redirect } from 'react-router'
 
 import CoinForm from './CoinForm'
+
+import { createCoin } from './api'
 
 class CoinCreate extends Component {
   constructor () {
@@ -20,12 +22,9 @@ class CoinCreate extends Component {
     event.preventDefault()
 
     const { coin } = this.state
+    const { user } = this.props
 
-    axios({
-      url: `${apiUrl}/coins`,
-      method: 'post',
-      data: { coin }
-    })
+    createCoin(user, coin)
       .then(response => this.setState({
         created: true,
         coin: response.data.coin

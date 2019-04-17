@@ -12,6 +12,7 @@ import ChangePassword from './auth/components/ChangePassword'
 // import Layout from './layout/Layout'
 import Coins from './coins/Coins'
 import Coin from './coins/Coin'
+import CoinCreate from './coins/CoinCreate'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -61,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/coins' render={() => (
             <Coins alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/coin-create' render={() => (
+            <CoinCreate alert={this.alert} user={user} />
           )} />
         </main>
         <AuthenticatedRoute user={user} exact path='/coins/:id' component={Coin} />

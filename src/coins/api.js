@@ -8,3 +8,12 @@ export const indexCoins = user => {
     headers: { 'Authorization': `Token token=${user.token}` }
   })
 }
+
+export const createCoin = (user, coin) => {
+  return axios({
+    method: 'POST',
+    url: apiUrl + '/coins',
+    headers: { 'Authorization': `Token token=${user.token}` },
+    data: { coin }
+  })
+}
