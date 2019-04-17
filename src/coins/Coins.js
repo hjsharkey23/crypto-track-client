@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import axios from 'axios'
-import apiUrl from '../apiConfig'
-import { Link } from 'react-router-dom'
+// import axios from 'axios'
+// import apiUrl from '../apiConfig'
+import { Link, withRouter } from 'react-router-dom'
+import { indexCoins } from './api'
 
 // import Spinner from 'react-bootstrap/Spinner'
 
@@ -15,11 +16,20 @@ class Coins extends Component {
   }
   componentDidMount () {
     console.log('coins component mounted')
-    axios.get(apiUrl + '/coins')
+
+    console.log(this.props)
+    const { user } = this.props
+
+    // axios.get(apiUrl + '/coins')
+    //   .then(response => this.setState({
+    //     coins: response.data.coins
+    //   }))
+    //   .catch(console.log)
+    indexCoins(user)
       .then(response => this.setState({
         coins: response.data.coins
       }))
-      .catch(console.log)
+      .catch(console.error)
   }
 
   render () {
@@ -45,4 +55,4 @@ class Coins extends Component {
   }
 }
 
-export default Coins
+export default withRouter(Coins)
