@@ -3,11 +3,14 @@ import './App.scss'
 import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
-import Header from './header/Header'
+import Header from './layout/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+
+// import Layout from './layout/Layout'
+import Coins from './coins/Coins'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -56,6 +59,7 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
+        <AuthenticatedRoute user={user} exact path='/coins' component={Coins} />
       </React.Fragment>
     )
   }
