@@ -22,7 +22,7 @@ class Coin extends Component {
     const id = this.props.match.params.id
     axios.get(`${apiUrl}/coins/${id}`)
       .then(response => this.setState({ coin: response.data.coin }))
-      .catch(console.log)
+      .catch()
   }
 
   handleDeleteCoin = () => {
@@ -31,15 +31,8 @@ class Coin extends Component {
 
     deleteCoin(user, id)
       .then(() => this.setState({ shouldRedirect: true }))
-      .then(() => console.log('deleted'))
       .catch(console.error)
   }
-
-  // deleteCoin = () => {
-  //   axios.delete(`${apiUrl}/coins/${this.state.coin.id}`)
-  //     .then(() => this.setState({ shouldRedirect: true }))
-  //     .catch(console.log)
-  // }
 
   render () {
     if (!this.state.coin) {

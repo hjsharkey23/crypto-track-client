@@ -15,16 +15,8 @@ class Coins extends Component {
     }
   }
   componentDidMount () {
-    console.log('coins component mounted')
-
-    console.log(this.props)
     const { user } = this.props
 
-    // axios.get(apiUrl + '/coins')
-    //   .then(response => this.setState({
-    //     coins: response.data.coins
-    //   }))
-    //   .catch(console.log)
     indexCoins(user)
       .then(response => this.setState({
         coins: response.data.coins
@@ -38,7 +30,7 @@ class Coins extends Component {
         <p>...</p>
       )
     }
-    console.log('coins component render')
+
     return (
       <Fragment>
         <h4>Coins:</h4>
