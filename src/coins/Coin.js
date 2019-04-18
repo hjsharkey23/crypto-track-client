@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect } from 'react-router'
+import { Redirect, withRouter } from 'react-router'
 // import { Link } from 'react-router-dom'
 
 // import Spinner from 'react-bootstrap/Spinner'
+
+import { deleteCoin } from './api'
 
 class Coin extends Component {
   constructor () {
@@ -23,11 +25,21 @@ class Coin extends Component {
       .catch(console.log)
   }
 
-  deleteCoin = () => {
-    axios.delete(`${apiUrl}/coins/${this.state.coin.id}`)
+  handleDeleteCoin = () => {
+    const { user } = this.props
+    const { id } = this.props.match.params
+
+    deleteCoin(user, id)
       .then(() => this.setState({ shouldRedirect: true }))
-      .catch(console.log)
+      .then(() => console.log('deleted'))
+      .catch(console.error)
   }
+
+  // deleteCoin = () => {
+  //   axios.delete(`${apiUrl}/coins/${this.state.coin.id}`)
+  //     .then(() => this.setState({ shouldRedirect: true }))
+  //     .catch(console.log)
+  // }
 
   render () {
     if (!this.state.coin) {
@@ -48,10 +60,10 @@ class Coin extends Component {
       <Fragment>
         <h4>{name}</h4>
         <p>Quantity: {quantity}</p>
-        <button onClick={this.deleteCoin}>Delete</button>
+        <button onClick={this.handleDeleteCoin}>Delete</button>
       </Fragment>
     )
   }
 }
 
-export default Coin
+export default withRouter(Coin)

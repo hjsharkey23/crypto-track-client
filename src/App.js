@@ -60,14 +60,16 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/coins' render={() => (
+          <AuthenticatedRoute user={user} exact path='/coins' render={() => (
             <Coins alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/coin-create' render={() => (
+          <AuthenticatedRoute user={user} exact path='/coin-create' render={() => (
             <CoinCreate alert={this.alert} user={user} />
           )} />
+          <AuthenticatedRoute user={user} exact path='/coins/:id' render={({ match }) => (
+            <Coin alert={this.alert} user={user} />
+          )} />
         </main>
-        <AuthenticatedRoute user={user} exact path='/coins/:id' component={Coin} />
       </React.Fragment>
     )
   }
