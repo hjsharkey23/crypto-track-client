@@ -14,6 +14,7 @@ import Coins from './coins/Coins'
 import Coin from './coins/Coin'
 import CoinCreate from './coins/CoinCreate'
 import CoinEdit from './coins/CoinEdit'
+import Home from './Home'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -73,6 +74,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/coins/:id/edit' render={({ match }) => (
             <CoinEdit alert={this.alert} user={user} />
           )} />
+          <Route exact path='/' component={Home} />
         </main>
       </React.Fragment>
     )
