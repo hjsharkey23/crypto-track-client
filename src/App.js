@@ -13,6 +13,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Coins from './coins/Coins'
 import Coin from './coins/Coin'
 import CoinCreate from './coins/CoinCreate'
+import CoinEdit from './coins/CoinEdit'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -68,6 +69,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/coins/:id' render={({ match }) => (
             <Coin alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/coins/:id/edit' render={({ match }) => (
+            <CoinEdit alert={this.alert} user={user} />
           )} />
         </main>
       </React.Fragment>

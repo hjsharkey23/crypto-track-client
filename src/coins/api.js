@@ -25,3 +25,12 @@ export const deleteCoin = (user, id) => {
     headers: { 'Authorization': `Token token=${user.token}` }
   })
 }
+
+export const editCoin = (user, id, coin) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/coins/' + id,
+    headers: { 'Authorization': `Token token=${user.token}` },
+    data: { coin }
+  })
+}

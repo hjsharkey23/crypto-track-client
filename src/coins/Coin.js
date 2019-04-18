@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect, withRouter } from 'react-router'
+import { Redirect, withRouter, Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 // import Spinner from 'react-bootstrap/Spinner'
@@ -61,6 +61,9 @@ class Coin extends Component {
         <h4>{name}</h4>
         <p>Quantity: {quantity}</p>
         <button onClick={this.handleDeleteCoin}>Delete</button>
+        <Link to={`/coins/${this.props.match.params.id}/edit`}>
+          <button>Edit</button>
+        </Link>
       </Fragment>
     )
   }
