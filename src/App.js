@@ -3,11 +3,17 @@ import './App.scss'
 import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
-import Header from './header/Header'
+import Header from './layout/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+
+// import Layout from './layout/Layout'
+import Coins from './coins/Coins'
+import Coin from './coins/Coin'
+import CoinCreate from './coins/CoinCreate'
+import CoinEdit from './coins/CoinEdit'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -54,6 +60,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/coins' render={() => (
+            <Coins alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/coin-create' render={() => (
+            <CoinCreate alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/coins/:id' render={({ match }) => (
+            <Coin alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/coins/:id/edit' render={({ match }) => (
+            <CoinEdit alert={this.alert} user={user} />
           )} />
         </main>
       </React.Fragment>
