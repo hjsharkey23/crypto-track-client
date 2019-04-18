@@ -7,9 +7,9 @@ const CoinForm = ({ message, name, quantity, handleChange, handleSubmit }
     {message && <Alert variant="danger" dismissible>{message}</Alert>}
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input value={name} name="name" onChange={handleChange} />
+      <input required value={name} name="name" onChange={handleChange} />
       <label htmlFor="quantity">Quantity</label>
-      <input value={quantity} name="quantity" onChange={handleChange} />
+      <input required value={quantity} type="number" name="quantity" onChange={handleChange} />
       <button type="submit">Submit</button>
     </form>
   </Fragment>
