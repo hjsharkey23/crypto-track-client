@@ -60,3 +60,10 @@ Set up and installation:
 5. Run npm run start to spin up the local server
 6. Click the back end repo link in this README and follow installation
   instructions.
+
+
+Future Plans: I want to add a third party api that shows the market value
+of all the coins that you enter. I would also like to add a calculator that
+will do the math for you and show you the value of each coin as well as the
+overwall value of your "wallet". I also plan to style the page to make it
+look better. 
