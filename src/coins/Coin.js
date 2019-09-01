@@ -6,6 +6,8 @@ import { Redirect } from 'react-router'
 
 // import Spinner from 'react-bootstrap/Spinner'
 
+import { deleteCoin } from './api'
+
 class Coin extends Component {
   constructor () {
     super()
@@ -17,16 +19,30 @@ class Coin extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props)
     const id = this.props.match.params.id
     axios.get(`${apiUrl}/coins/${id}`)
       .then(response => this.setState({ coin: response.data.coin }))
       .catch(console.log)
+
+    // deleteCoin(user)
+    //   .then(() => this.setState({ shouldRedirect: true }))
+    //   .catch(console.log)
   }
 
-  deleteCoin = () => {
-    axios.delete(`${apiUrl}/coins/${this.state.coin.id}`)
-      .then(() => this.setState({ shouldRedirect: true }))
-      .catch(console.log)
+  // deleteCoin = () => {
+  //   axios.delete(`${apiUrl}/coins/${this.state.coin.id}`)
+  //     .then(() => this.setState({ shouldRedirect: true }))
+  //     .catch(console.log)
+  // }
+
+  handleDeleteCoin = () => {
+    const { user } = this.props
+    const { id } = this.props.match.params
+
+    deleteCoin(user, id)
+      .then(() => console.log('deleted'))
+      .catch(console.error)
   }
 
   render () {
@@ -48,7 +64,7 @@ class Coin extends Component {
       <Fragment>
         <h4>{name}</h4>
         <p>Quantity: {quantity}</p>
-        <button onClick={this.deleteCoin}>Delete</button>
+        <button onClick={this.handleDeleteCoin}>Delete</button>
       </Fragment>
     )
   }

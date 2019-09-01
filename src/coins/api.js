@@ -17,3 +17,11 @@ export const createCoin = (user, coin) => {
     data: { coin }
   })
 }
+
+export const deleteCoin = (user, id) => {
+  return axios({
+    method: 'DELETE',
+    url: apiUrl + `/coins/${id}`,
+    headers: { 'Authorization': `Token token=${user.token}` }
+  })
+}
