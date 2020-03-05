@@ -27,7 +27,7 @@ class Coins extends Component {
   render () {
     if (this.state.coins.length === 0) {
       return (
-        <p>...</p>
+        <p>Add a coin!</p>
       )
     }
 

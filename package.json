@@ -1,6 +1,6 @@
 {
   "name": "crypto-track-client",
-  "homepage": "https://hjsharkey23.github.io/crypto-track",
+  "homepage": "https://hjsharkey23.github.io/crypto-track-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
