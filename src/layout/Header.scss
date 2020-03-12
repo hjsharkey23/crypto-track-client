@@ -1,8 +1,9 @@
 $charcoal: #bbb;
 
 .main-header {
+  font-family: 'Share Tech Mono', monospace;
   align-items: center;
-  border-bottom: 1px solid $charcoal;
+  border-bottom: 2px solid $charcoal;
   display: flex;
   height: 100px;
   padding: 0 20px;
@@ -24,6 +25,7 @@ $charcoal: #bbb;
 .selected {
   background-color: silver
 }
+
 
 @media (max-width: 600px) {
   .main-header {
